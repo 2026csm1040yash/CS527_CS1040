@@ -1,0 +1,5 @@
+Computes (3 + 4i) * (2 + 5i).
+Real part = 3*2 - 4*5 = -14.
+Imaginary part = 3*5 + 4*2 = 23.
+The bytecode writes real part to address 0 and imaginary part to address 4.
+Note: -14 is represented in 32-bit two's complement when the processor executes it.

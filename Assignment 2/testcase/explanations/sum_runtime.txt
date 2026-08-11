@@ -1,0 +1,10 @@
+Runtime array sum using the assignment's example algorithm.
+Data memory:
+address 0 = N = 3
+address 4 = 10
+address 8 = 20
+address 12 = 30
+
+Expected sum = 60.
+The result is written at address 16 (N*4+4), so the processor should produce:
+3, 10, 20, 30, 60 as 32-bit values in the relevant memory words.

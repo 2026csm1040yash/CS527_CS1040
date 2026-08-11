@@ -1,0 +1,3 @@
+Computes 10 + 20 + 30 + 40 + 50 = 150.
+Result is written to memory address 0.
+Expected output is the bytecode in sum_fixed.byte.

@@ -1,0 +1,14 @@
+Expected compiler output:
+07 01 00 00  -> x1 = 0
+07 02 00 00  -> x2 = 0
+07 03 00 00  -> x3 = 0
+05 04 00 03  -> x4 = [x3], register-address memory read
+02 0F 01 04  -> x15 = x1 - x4
+10 00 00 06  -> BEQ .exit
+09 03 03 04  -> x3 = x3 + 4
+05 06 00 03  -> x6 = [x3]
+01 02 02 06  -> x2 = x2 + x6
+09 01 01 01  -> x1 = x1 + 1
+1E 00 00 FA  -> BAL .loopback (relative offset -6)
+06 03 00 02  -> [x3] = x2
+00 00 00 00  -> end of simulation

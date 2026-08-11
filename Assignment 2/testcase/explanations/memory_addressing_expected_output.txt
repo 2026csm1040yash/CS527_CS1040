@@ -1,0 +1,23 @@
+EXPECTED COMPILER OUTPUT
+
+07 01 2A 00
+06 00 00 01
+07 02 00 00
+05 03 00 02
+0D 04 00 00
+07 05 07 00
+0E 04 00 05
+05 06 00 04
+06 02 00 06
+00 00 00 00
+
+EXPLANATION
+Tests all Lab 2 memory forms:
+1. [x0] = x1              -> 06 00 00 01
+2. x3 = [x2]              -> 05 03 00 02
+3. x4 = [0]               -> 0D 04 00 00 (constant-address read)
+4. Write x5, 4            -> 0E 04 00 05 (legacy write, encoded with constant-address write)
+5. Read x6, 4             -> 05 06 00 04 (legacy read, operand1 is zero)
+6. [x2] = x6              -> 06 02 00 06
+
+The important Lab 2 correction is that operand1 is 0 for memory operations.

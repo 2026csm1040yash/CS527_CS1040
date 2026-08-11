@@ -1,0 +1,22 @@
+EXPECTED COMPILER OUTPUT
+
+07 01 03 00
+07 02 04 00
+07 03 02 00
+07 04 05 00
+03 05 01 03
+03 06 02 04
+02 07 05 06
+03 08 01 04
+03 09 02 03
+01 0A 08 09
+06 00 00 07
+06 04 00 0A
+00 00 00 00
+
+EXPLANATION
+Computes (3 + 4i) * (2 + 5i).
+Real part = 3*2 - 4*5 = -14.
+Imaginary part = 3*5 + 4*2 = 23.
+The bytecode writes real part to address 0 and imaginary part to address 4.
+Note: -14 is represented in 32-bit two's complement when the processor executes it.

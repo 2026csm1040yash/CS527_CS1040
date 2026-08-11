@@ -1,0 +1,3 @@
+Simple FIR-style two-tap calculation using weights 1 and 2.
+The program computes data[1]*1 + data[2]*2 and writes the result to address 0.
+This is a compact syntax test; the assignment's full FIR example specifies input at address 0 and output at 0x10.
