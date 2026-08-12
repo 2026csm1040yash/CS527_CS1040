@@ -282,15 +282,20 @@ void compile(const char *sourceFile, const char *bytecodeFile)
             continue;
         }
 
-        /* Data movement: xD = constant. */
+        /* Data movement: xD = constant.
+           The reference bytecode example uses 0x0F (displayed as F)
+           for constant-to-register movement. */
         if (sscanf(line, "x%d = %d", &d, &a) == 2 && d >= 0 && d <= 255 && a >= 0 && a <= 255) {
-            print_bytecode(out, 0x07, d, 0, a);
+            print_bytecode(out, 0x0F, d, 0, a);
             continue;
         }
 
         printf("Unable to compile line: %s\n", line);
     }
 
-    print_bytecode(out, 0x00, 0, 0, 0);
+    /* Do not append a synthetic HALT instruction. The instruction memory is
+       zero-initialized, and opcode 0 terminates execution when the processor
+       reaches the first unused instruction slot. This also matches the
+       supplied reference bytecode example exactly. */
     fclose(out);
 }

@@ -1,0 +1,16 @@
+Expected bytecode based on the supplied reference image:
+
+F 1 0 0
+F 2 0 0
+F 3 0 0
+5 4 0 3
+2 F 1 4
+10 0 0 6
+9 3 3 4
+5 6 0 3
+1 2 2 6
+9 1 1 1
+1E 0 0 FA
+6 3 0 2
+
+Note: The extracted PDF text shows 7 for the first three data-movement instructions, but the supplied reference image shows F. This project follows the supplied image.

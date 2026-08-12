@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -std=c11
 
-TARGET = compiler.exe
+TARGET = simulator.exe
 SRC = $(wildcard *.c)
 OBJ = $(SRC:.c=.o)
 

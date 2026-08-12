@@ -112,7 +112,10 @@ static void execute_branch(int condition, int offset)
     }
 
     if (take)
-        PC += offset * 4;
+        /* The lab defines the branch offset relative to the current
+           instruction address. fetch() has already advanced PC to the
+           next instruction, so compensate by one instruction. */
+        PC += (offset - 1) * 4;
 }
 
 void execute(void)
@@ -186,8 +189,9 @@ void execute(void)
             write32(address, (uint32_t)Register[src2]);
             break;
 
-        /* Data movement: dest = constant */
-        case 0x07:
+        /* Data movement: dest = constant.
+           Constant data movement is opcode 0x0F (displayed as F). */
+        case 0x0F:
             Register[dest] = src2;
             break;
 
