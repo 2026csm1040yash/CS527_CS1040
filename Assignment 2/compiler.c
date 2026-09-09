@@ -282,10 +282,20 @@ void compile(const char *sourceFile, const char *bytecodeFile)
             continue;
         }
 
-        /* Data movement: xD = constant.
-           The reference bytecode example uses 0x0F (displayed as F)
-           for constant-to-register movement. */
-        if (sscanf(line, "x%d = %d", &d, &a) == 2 && d >= 0 && d <= 255 && a >= 0 && a <= 255) {
+        /* Data movement: register-to-register.
+           Opcode 0x07 is variable/register data movement.
+           Format: 07 <destination> 00 <source register>. */
+        if (sscanf(line, "x%d = x%d", &d, &a) == 2 &&
+            d >= 0 && d <= 255 && a >= 0 && a <= 255) {
+            print_bytecode(out, 0x07, d, 0, a);
+            continue;
+        }
+
+        /* Data movement: constant-to-register.
+           Opcode 0x0F is constant data movement (displayed as F).
+           Format: 0F <destination> 00 <constant>. */
+        if (sscanf(line, "x%d = %d", &d, &a) == 2 &&
+            d >= 0 && d <= 255 && a >= 0 && a <= 255) {
             print_bytecode(out, 0x0F, d, 0, a);
             continue;
         }

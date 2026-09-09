@@ -189,8 +189,14 @@ void execute(void)
             write32(address, (uint32_t)Register[src2]);
             break;
 
-        /* Data movement: dest = constant.
-           Constant data movement is opcode 0x0F (displayed as F). */
+        /* Data movement: register -> register.
+           Format: 07 <dest> 00 <source register>. */
+        case 0x07:
+            Register[dest] = Register[src2];
+            break;
+
+        /* Data movement: constant -> register.
+           Format: 0F <dest> 00 <constant>. */
         case 0x0F:
             Register[dest] = src2;
             break;
