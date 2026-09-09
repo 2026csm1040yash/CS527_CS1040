@@ -1,0 +1,13 @@
+Algorithm: PageRank
+Vertex ranks:
+0 0.1517586202
+1 0.1149075539
+2 0.1637416442
+3 0.2384318143
+4 0.1517586202
+5 0.1794017470
+Top vertex: 3
+Sum of ranks: 1.0000000000
+Iterations: 16
+Converged: true
+Execution time: 0.001391 ms
